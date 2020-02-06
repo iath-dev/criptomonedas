@@ -9,7 +9,7 @@ export default styled.h1`
     margin-top: 80px;
     margin-bottom: 50px;
 
-    &::after {
+    &::after { /* Linea de división al final del heading */
         content: '';
         width: 100px;
         height: 6px;
