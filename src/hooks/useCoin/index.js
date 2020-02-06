@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label, Select } from '../../components';
 
 /**
  * TODO: Hooks, Funciones.....
@@ -10,20 +11,20 @@ const useCoin = (label, initial, options = []) => {
     // Estado del custom hook;
     const [state, setState] = React.useState(initial);
 
-    const Select = () => (
+    const Selection = () => (
         <React.Fragment>
-            <label>{label}</label>
-            <select onChange={e => setState(e.target.value)} value={state}>
+            <Label>{label}</Label>
+            <Select onChange={e => setState(e.target.value)} value={state}>
                 <option value="">Seleccione</option>
                 {options.map(({code, name}) => (
                     <option key={code} value={code}>{name}</option>
                 ))}
-            </select>
+            </Select>
         </React.Fragment>
     )
 
     // 
-    return [state, Select, setState];
+    return [state, Selection, setState];
 
 }
 
