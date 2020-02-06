@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from '../../components';
 import { useCoin } from '../../hooks';
+import { coins } from '../../data/options';
 
 const Form = () => {
 
-    const [state, Select, setState] = useCoin();
+    const [state, Select, setState] = useCoin('Elige tu moneda', '', coins);
 
     return ( 
         <form>
