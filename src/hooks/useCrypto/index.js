@@ -11,9 +11,10 @@ const useCrypto = (label, initial, options = []) => {
             <Label>{label}</Label>
             <Select onChange={e => setState(e.target.value)} value={state}>
                 <option value="">Seleccione</option>
-                {/* {options.map(({code, name}) => (
-                    <option key={code} value={code}>{name}</option>
-                ))} */}
+                {options.map((option) => {
+                    const { CoinInfo } = option;
+                    return (<option value={CoinInfo.Name} key={CoinInfo.Id}>{CoinInfo.FullName}</option>)
+                })}
             </Select>
         </React.Fragment>
     )
