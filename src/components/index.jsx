@@ -8,3 +8,4 @@ export { default as Error } from './error';
 export { default as Result } from './results';
 export { default as Paragraph } from './Paragraph';
 export { default as Price } from './price';
+export { default as Spinner } from './spinner';
