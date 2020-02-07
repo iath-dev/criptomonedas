@@ -4,7 +4,7 @@ import { useCoin, useCrypto } from '../../hooks';
 import { coins } from '../../data/options';
 import Axios from 'axios';
 
-const Form = () => {
+const Form = ({ setCoin, setCrypto }) => {
     // Opciones de Criptomonedas
     const [options, setOptions] = React.useState([]);
     // Utilizar useCoin
@@ -19,6 +19,8 @@ const Form = () => {
             return;
         }
         setError(false);
+        setCoin(coin);
+        setCrypto(crypto);
     }
 
     React.useEffect(() => {

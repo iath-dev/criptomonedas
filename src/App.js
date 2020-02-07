@@ -4,6 +4,14 @@ import img from './assets/images/cryptomonedas.png'
 import { Form } from './containers';
 
 function App() {
+
+  const [coin, setCoin] = React.useState('');
+  const [crypto, setCrypto] = React.useState('');
+
+  React.useEffect(() => {
+    if (coin === '' || crypto === '') return;
+  }, [coin, crypto]);
+
   return (
     <Container>
       <div>
@@ -11,7 +19,7 @@ function App() {
       </div>
       <div>
         <Heading>Cotiza Criptomonedas al instante</Heading>
-        <Form />
+        <Form setCoin={setCoin} setCrypto={setCrypto} />
       </div>
     </Container>
   );
