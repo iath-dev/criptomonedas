@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Image, Heading } from './components';
 import img from './assets/images/cryptomonedas.png'
 import { Form } from './containers';
+import Axios from 'axios';
 
 function App() {
 
@@ -9,7 +10,15 @@ function App() {
   const [crypto, setCrypto] = React.useState('');
 
   React.useEffect(() => {
-    if (coin === '' || crypto === '') return;
+    const ConsultApi = async () => {
+      if (coin === '' || crypto === '') return;
+  
+      const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto}&tsyms=${coin}`;
+  
+      const result = await Axios.get(url);
+      console.log(result.data.DISPLAY[crypto][coin]);
+    }
+    ConsultApi();
   }, [coin, crypto]);
 
   return (
