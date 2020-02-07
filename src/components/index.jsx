@@ -5,3 +5,6 @@ export { default as Button } from './button';
 export { default as Label } from './label';
 export { default as Select } from './select';
 export { default as Error } from './error';
+export { default as Result } from './results';
+export { default as Paragraph } from './Paragraph';
+export { default as Price } from './price';

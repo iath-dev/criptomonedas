@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Image, Heading } from './components';
 import img from './assets/images/cryptomonedas.png'
-import { Form } from './containers';
+import { Form, Results } from './containers';
 import Axios from 'axios';
 
 function App() {
 
   const [coin, setCoin] = React.useState('');
   const [crypto, setCrypto] = React.useState('');
+  const [result, setResult] = React.useState({});
 
   React.useEffect(() => {
     const ConsultApi = async () => {
@@ -15,8 +16,9 @@ function App() {
   
       const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto}&tsyms=${coin}`;
   
-      const result = await Axios.get(url);
-      console.log(result.data.DISPLAY[crypto][coin]);
+      const res = await Axios.get(url);
+      // Método dinámico de consultar la respuesta.
+      setResult(res.data.DISPLAY[crypto][coin]);
     }
     ConsultApi();
   }, [coin, crypto]);
@@ -29,6 +31,7 @@ function App() {
       <div>
         <Heading>Cotiza Criptomonedas al instante</Heading>
         <Form setCoin={setCoin} setCrypto={setCrypto} />
+        <Results result={result} />
       </div>
     </Container>
   );
