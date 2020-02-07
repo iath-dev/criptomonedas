@@ -4,3 +4,4 @@ export { default as Heading } from './heading';
 export { default as Button } from './button';
 export { default as Label } from './label';
 export { default as Select } from './select';
+export { default as Error } from './error';
