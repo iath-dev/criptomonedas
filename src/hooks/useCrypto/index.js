@@ -1,7 +1,7 @@
 import React from 'react';
 import { Label, Select } from '../../components';
 
-const useCrypto = (label, initial) => {
+const useCrypto = (label, initial, options = []) => {
 
     // Estado del custom hook;
     const [state, setState] = React.useState(initial);
