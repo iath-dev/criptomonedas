@@ -1,6 +1,12 @@
 import React from 'react';
 import { Label, Select } from '../../components';
 
+/**
+ * Hook para el manejo de las Cryptomonedas.
+ * @param {string} label Etiqueta del select
+ * @param {string} initial Valor inicial del Select
+ * @param {[]} options Opciones de Criptomonedas.
+ */
 const useCrypto = (label, initial, options = []) => {
 
     // Estado del custom hook;

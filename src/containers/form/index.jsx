@@ -3,6 +3,7 @@ import { Button, Error } from '../../components';
 import { useCoin, useCrypto } from '../../hooks';
 import { coins } from '../../data/options';
 import Axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Form = ({ setCoin, setCrypto }) => {
     // Opciones de Criptomonedas
@@ -12,6 +13,11 @@ const Form = ({ setCoin, setCrypto }) => {
     // Utilizar useCrypto
     const [crypto, SelectCrypto] = useCrypto('Elige tu Crypto-moneda', '', options);
     const [error, setError] = React.useState(false);
+
+    /**
+     * Función para manejar la resolución del formulario.
+     * @param {event} event Evento del Formulario
+     */
     const handleSubmit = (event) => {
         event.preventDefault();
         if(coin === '' || crypto === '') {
@@ -24,6 +30,7 @@ const Form = ({ setCoin, setCrypto }) => {
     }
 
     React.useEffect(() => {
+        // Consultar a la API para traer el TOP de Crypto Monedas
         const consultApi = async () => {
             const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
             const result = await Axios.get(url);
@@ -41,5 +48,10 @@ const Form = ({ setCoin, setCrypto }) => {
         </form>
      );
 }
- 
+
+Form.propTypes = {
+    setCoin: PropTypes.func.isRequired,
+    setCrypto: PropTypes.func.isRequired,
+}
+
 export default Form;

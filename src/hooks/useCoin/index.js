@@ -3,8 +3,10 @@ import { Label, Select } from '../../components';
 
 /**
  * TODO: Hooks, Funciones.....
+ * Hook para el manejo de las monedas
  * @param {string} label Etiqueta del select
  * @param {string} initial Valor inicias
+ * @param {[]} options Opciones de Monedas
  */
 const useCoin = (label, initial, options = []) => {
 

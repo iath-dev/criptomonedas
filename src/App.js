@@ -12,6 +12,7 @@ function App() {
   const [load, setLoad] = React.useState(false);
 
   React.useEffect(() => {
+    // Consultar a la API de cotización.
     const ConsultApi = async () => {
       if (coin === '' || crypto === '') return;
   
